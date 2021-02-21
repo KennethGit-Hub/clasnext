@@ -1,22 +1,52 @@
-import React from 'react'
-import Buscar from '../ui/Buscar'
+import React from 'react';
+import Buscar from '../ui/Buscar';
+import Navegacion from './Navegacion';
+import Link from 'next/link'
+import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 
+const ContenedorHeader = styled.div`
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+    @media (min-width: 768px){
+        display: flex;
+        justify-content: space-between;   
+    }
+`;
+const Logo = styled.p`
+    color: var(--naranja);
+    font-size: 4rem;
+    line-height: 0;
+    font-weight: 700;
+    font-family: 'Roboto Slab', serif;
+    margin-right: 2rem;
+`;
 const Header = ()=> {
     return(
-        <header>
-            <div>
+        <header
+            css={css`
+                border-bottom: 2px solid var(--celeste);
+                padding: 1rem 0;
+            `}
+        >
+            <ContenedorHeader>
                 <div>
-                    <p>P</p>
-                    {/*BUSCADOR AQUI*/}
-                    <Buscar></Buscar>
+                    <Logo>R&W</Logo>
+                    <Buscar/>
 
-                    {/*NAV AQUI*/}
+                    <Navegacion/>
 
                 </div>
                 <div>
-                    {/*MENU ADMIN*/}
+                    <p>Hola: Kenneth</p>
+
+                    <button type="button">Cerrar Sesion</button>
+
+                    <Link href="/">Login</Link>
+                    <Link href="/">Crear Cuenta</Link>
                 </div>
-            </div>
+            </ContenedorHeader>
         </header>
     );
     
